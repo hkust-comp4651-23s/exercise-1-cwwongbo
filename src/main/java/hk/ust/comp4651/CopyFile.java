@@ -45,7 +45,14 @@ public class CopyFile {
         FSDataOutputStream out = null;
 
         // TODO: Your implementation goes here...
-        
+        in = inFS.open(new Path(src));
+        out = outFS.create(new Path(dst),
+                new Progressable(){
+                    public void progress(){
+                        System.out.print(".");
+                    }
+                });
+        System.out.print("\n");
+        IOUtils.copyBytes(in, out, BufferSize, true);  
     }
-
 }
