@@ -48,13 +48,11 @@ public class CopyFile {
         in = inFS.open(new Path(src));
         out = outFS.create(new Path(dst),
                 new Progressable(){
-                    /*Print a dot whenever 64KB of data has been written to the datnode pipeline*/
                     public void progress(){
-                        System.out.print(s:".");
+                        System.out.print(".");
                     }
                 });
-        System.out.print(s:"\n");
-        IOUtils.copyBytes(in, out, BufferSize, close:true);
-        
+        System.out.print("\n");
+        IOUtils.copyBytes(in, out, BufferSize, close:true);  
     }
 }
