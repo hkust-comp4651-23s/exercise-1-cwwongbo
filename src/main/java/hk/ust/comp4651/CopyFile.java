@@ -53,6 +53,6 @@ public class CopyFile {
                     }
                 });
         System.out.print("\n");
-        IOUtils.copyBytes(in, out, BufferSize, close:true);  
+        IOUtils.copyBytes(in, out, BufferSize, true);  
     }
 }
